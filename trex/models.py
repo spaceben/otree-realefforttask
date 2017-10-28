@@ -27,4 +27,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    distance = models.FloatField()
+    pass

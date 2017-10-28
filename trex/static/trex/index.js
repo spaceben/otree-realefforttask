@@ -797,8 +797,8 @@ var otreeDistance = 0;
             // Reset the time clock.
             this.time = getTimeStamp();
 
-            // @spaceben:
-            otreeDistance = Math.round( this.distanceRan*this.distanceMeter.config.COEFFICIENT );
+            //@spaceben
+            $("#tryagain").show();
         },
 
         stop: function () {
@@ -835,6 +835,8 @@ var otreeDistance = 0;
                 this.playSound(this.soundFx.BUTTON_PRESS);
                 this.invert(true);
                 this.update();
+                //@spaceben
+                $("#tryagain").hide();
             }
         },
 
@@ -2068,7 +2070,15 @@ var otreeDistance = 0;
                     this.draw(i, parseInt(this.digits[i]));
                 }
             }
-
+            // @spaceben:
+            if(distance <= otreeMaxDistance && distance > 0){
+                otreeDistance = distance;
+            }
+            if(otreeDistance >= otreeMaxDistance){
+                $('#form').submit();
+                Runner.gameOver();
+            }
+            //document.getElementById("tryagain").innerHTML = otreeDistance;
             this.drawHighScore();
             return playSound;
         },

@@ -64,25 +64,8 @@
                 return false;
             }
         });
-
-        var otreeMaxDistance = {{ Constants.max_distance }}; 
-
-        $('#tryagain').hide();
-
-        setInterval(function(){
-            if(otreeDistance > otreeMaxDistance){
-                // submit 
-                console.log(otreeDistance);
-                $('#id_distance').val( otreeDistance );
-                console.log( $('#id_distance').val() );
-                $('#form').submit();
-            }
-            else{
-                if(otreeDistance!=0){
-                    $('#tryagain').show();
-                }
-            }
-        }, 1000);
+        $("#tryagain").hide();
+        var otreeMaxDistance = {{ Constants.max_distance }};
     </script>
 
     <!-- reference a static file -->

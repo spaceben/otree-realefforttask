@@ -5,8 +5,7 @@ from .models import Constants
 
 
 class MyPage(Page):
-    form_model = models.Player
-    form_fields = ['distance']
+    pass
 
 
 class Results(Page):
