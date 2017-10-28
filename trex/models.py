@@ -15,6 +15,7 @@ class Constants(BaseConstants):
     name_in_url = 'trex'
     players_per_group = None
     num_rounds = 1
+    max_distance = 150
 
 
 class Subsession(BaseSubsession):
@@ -26,4 +27,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    distance = models.FloatField()

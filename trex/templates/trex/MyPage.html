@@ -8,6 +8,14 @@
 
 {% block content %}
 
+<div class="alert alert-success">
+    You have to reach at least a score of <b>{{ Constants.max_distance }}</b> to complete this task.
+</div>
+
+<div id="tryagain" class="alert alert-danger">
+    Please try again. 
+</div>
+
 <div id="main-frame-error" class="interstitial-wrapper">
         <div id="main-content">
             <div class="icon icon-offline" alt=""></div>
@@ -22,6 +30,9 @@
             </template>
         </div>
 </div>
+
+<input type="hidden" name="distance"
+    value="0" id="id_distance"/>
 
 
 {% endblock %}
@@ -54,11 +65,22 @@
             }
         });
 
+        var otreeMaxDistance = {{ Constants.max_distance }}; 
+
+        $('#tryagain').hide();
 
         setInterval(function(){
-            if(otreeDistance > 200){
+            if(otreeDistance > otreeMaxDistance){
                 // submit 
-                console.log('now');
+                console.log(otreeDistance);
+                $('#id_distance').val( otreeDistance );
+                console.log( $('#id_distance').val() );
+                $('#form').submit();
+            }
+            else{
+                if(otreeDistance!=0){
+                    $('#tryagain').show();
+                }
             }
         }, 1000);
     </script>

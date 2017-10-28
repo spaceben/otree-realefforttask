@@ -798,7 +798,7 @@ var otreeDistance = 0;
             this.time = getTimeStamp();
 
             // @spaceben:
-            otreeDistance = this.distanceRan;
+            otreeDistance = Math.round( this.distanceRan*this.distanceMeter.config.COEFFICIENT );
         },
 
         stop: function () {

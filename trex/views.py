@@ -5,13 +5,8 @@ from .models import Constants
 
 
 class MyPage(Page):
-    pass
-
-
-class ResultsWaitPage(WaitPage):
-
-    def after_all_players_arrive(self):
-        pass
+    form_model = models.Player
+    form_fields = ['distance']
 
 
 class Results(Page):
@@ -20,6 +15,5 @@ class Results(Page):
 
 page_sequence = [
     MyPage,
-    ResultsWaitPage,
     Results
 ]
